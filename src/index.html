@@ -1,39 +1,274 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="styles.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri App</title>
-    <script type="module" src="/main.js" defer></script>
-  </head>
 
-  <body>
-    <main class="container">
-      <h1>Welcome to Tauri</h1>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>LabSounds</title>
 
-      <div class="row">
-        <a href="https://tauri.app" target="_blank">
-          <img src="/assets/tauri.svg" class="logo tauri" alt="Tauri logo" />
-        </a>
-        <a
-          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"
-          target="_blank"
-        >
-          <img
-            src="/assets/javascript.svg"
-            class="logo vanilla"
-            alt="JavaScript logo"
-          />
-        </a>
-      </div>
-      <p>Click on the Tauri logo to learn more about the framework</p>
+	<link rel="stylesheet" href="src/assets/fonts/chillax.css">
+	<link rel="stylesheet" href="dist/style.css">
 
-      <form class="row" id="greet-form">
-        <input id="greet-input" placeholder="Enter a name..." />
-        <button type="submit">Greet</button>
-      </form>
-      <p id="greet-msg"></p>
-    </main>
-  </body>
+	<!-- <script src="../node_modules/@splidejs/splide/dist/js/splide.min.js"></script>
+	<link rel="stylesheet" href="../node_modules/@splidejs/splide/dist/css/splide-core.min.css"> -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+
+</head>
+
+<body>
+
+	<main>
+		<div class="top">
+
+			<div class="left">
+				<div class="title">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+						<path fill="currentColor"
+							d="M12 1.75A10.25 10.25 0 1 0 22.25 12A10.26 10.26 0 0 0 12 1.75m5.42 7.64a2.2 2.2 0 0 1-.22.92a2.1 2.1 0 0 1-.6.73a2.06 2.06 0 0 1-.85.39q-.21.023-.42 0q-.264 0-.52-.06l-2.06-.58v4.34a3.09 3.09 0 1 1-3.08-3.09a2.94 2.94 0 0 1 1.58.45v-6a.6.6 0 0 1 0-.2v-.08a.72.72 0 0 1 .54-.44h.44l3.61 1a2.1 2.1 0 0 1 1.09.75c.27.362.42.799.43 1.25z" />
+						<path fill="currentColor"
+							d="M11.25 15.17a1.59 1.59 0 1 1-1.58-1.59a1.58 1.58 0 0 1 1.58 1.59m4.67-6.34v.56a.8.8 0 0 1-.07.26a.45.45 0 0 1-.16.2a.7.7 0 0 1-.24.11a.5.5 0 0 1-.25 0l-2.45-.69V7.49l2.74.78a.66.66 0 0 1 .31.21c.068.105.11.225.12.35" />
+					</svg>
+					<p>Lab<b>Sounds</b></p>
+				</div>
+				<nav>
+					<hr>
+					<ul>
+						<p class="cat">Recommendations</p>
+						<a href="">
+							<li class="active">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+									<path fill="currentColor"
+										d="M14.19 14.19L6 18l3.81-8.19L18 6m-6-4A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 8.9a1.1 1.1 0 0 0-1.1 1.1a1.1 1.1 0 0 0 1.1 1.1a1.1 1.1 0 0 0 1.1-1.1a1.1 1.1 0 0 0-1.1-1.1" />
+								</svg>
+								<span>For you</span>
+							</li>
+						</a>
+						<a href="">
+							<li>
+								<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+									<path fill="currentColor"
+										d="M3.5 2C2.67 2 2 2.67 2 3.498v12.981c0 .828.671 1.498 1.5 1.498h1c.827 0 1.499-.67 1.499-1.498V3.498C5.999 2.67 5.327 2 4.499 2zm4.998 0c-.828 0-1.5.67-1.5 1.498v12.981c0 .828.672 1.498 1.5 1.498h1c.828 0 1.499-.67 1.499-1.498V3.498c0-.827-.671-1.498-1.5-1.498zm7.22 4.157a1.5 1.5 0 0 0-1.87-1.106l-.745.21a1.5 1.5 0 0 0-1.06 1.742l2.003 9.799a1.5 1.5 0 0 0 1.839 1.151l.985-.25c.79-.2 1.274-.994 1.092-1.787z" />
+								</svg>
+								<span>Library</span>
+							</li>
+						</a>
+						<p class="cat">My Music</p>
+						<a href="">
+							<li>
+								<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+									<path fill="currentColor" stroke="currentColor" stroke-linecap="round"
+										stroke-linejoin="round" stroke-width="4"
+										d="M15 8C8.925 8 4 12.925 4 19c0 11 13 21 20 23.326C31 40 44 30 44 19c0-6.075-4.925-11-11-11c-3.72 0-7.01 1.847-9 4.674A10.99 10.99 0 0 0 15 8" />
+								</svg>
+								<span>Liked Songs</span>
+							</li>
+						</a>
+						<a href="">
+							<li>
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+									<g fill="none">
+										<path
+											d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+										<path fill="currentColor"
+											d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12S6.477 2 12 2m0 8a2 2 0 1 0 0 4a2 2 0 0 0 0-4m-.56-3.493a1 1 0 0 0-1.276-.61a7.02 7.02 0 0 0-3.73 3.1A1 1 0 0 0 8.166 10a5.02 5.02 0 0 1 2.665-2.216a1 1 0 0 0 .61-1.276Z" />
+									</g>
+								</svg>
+								<span>Alumbs</span>
+							</li>
+						</a>
+						<a href="">
+							<li>
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+									<path fill="currentColor"
+										d="M12 21q-3.15 0-5.575-1.912T3.275 14.2q-.1-.375.15-.687t.675-.363q.4-.05.725.15t.45.6q.6 2.25 2.475 3.675T12 19q2.925 0 4.963-2.037T19 12t-2.037-4.962T12 5q-1.725 0-3.225.8T6.25 8H8q.425 0 .713.288T9 9t-.288.713T8 10H4q-.425 0-.712-.288T3 9V5q0-.425.288-.712T4 4t.713.288T5 5v1.35q1.275-1.6 3.113-2.475T12 3q1.875 0 3.513.713t2.85 1.924t1.925 2.85T21 12t-.712 3.513t-1.925 2.85t-2.85 1.925T12 21m1-9.4l2.5 2.5q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-2.8-2.8q-.15-.15-.225-.337T11 11.975V8q0-.425.288-.712T12 7t.713.288T13 8z" />
+								</svg>
+								<span>Recent</span>
+							</li>
+						</a>
+					</ul>
+				</nav>
+				<div class="footer">
+					<a href="https://github.com/kerogs/LabSounds" target="_blank">Link to Github</a>
+				</div>
+			</div>
+
+			<div class="center">
+
+				<header>
+					<div class="left">
+						<a href="">
+							<button class="searchBtn">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+									<path fill="currentColor"
+										d="m18.031 16.617l4.283 4.282l-1.415 1.415l-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9s9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617m-5.853-9.44a4 4 0 1 0 2.646 2.646a2 2 0 1 1-2.646-2.647" />
+								</svg>
+								<span>Search for a song</span>
+
+							</button>
+						</a>
+					</div>
+					<div class="right">
+						<a href="">
+							<button class="iconBtn">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+									<path fill="currentColor"
+										d="M22 2H2v20h12.39A5.5 5.5 0 0 1 22 14.39zm-7 5v2h-2v5.5a2.5 2.5 0 1 1-2-2.45V7z" />
+									<path fill="currentColor" d="M20 20h3v-2h-3v-3h-2v3h-3v2h3v3h2z" />
+								</svg>
+							</button>
+						</a>
+						<button onclick="toggleDarkLightMode()" class="iconBtn" id="buttonLightDark">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+								<g fill="none">
+									<path
+										d="m12.593 23.258l-.011.002l-.071.035l-.02.004l-.014-.004l-.071-.035q-.016-.005-.024.005l-.004.01l-.017.428l.005.02l.01.013l.104.074l.015.004l.012-.004l.104-.074l.012-.016l.004-.017l-.017-.427q-.004-.016-.017-.018m.265-.113l-.013.002l-.185.093l-.01.01l-.003.011l.018.43l.005.012l.008.007l.201.093q.019.005.029-.008l.004-.014l-.034-.614q-.005-.018-.02-.022m-.715.002a.02.02 0 0 0-.027.006l-.006.014l-.034.614q.001.018.017.024l.015-.002l.201-.093l.01-.008l.004-.011l.017-.43l-.003-.012l-.01-.01z" />
+									<path fill="currentColor"
+										d="M12 19a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1m6.364-2.05l.707.707a1 1 0 0 1-1.414 1.414l-.707-.707a1 1 0 0 1 1.414-1.414m-12.728 0a1 1 0 0 1 1.497 1.32l-.083.094l-.707.707a1 1 0 0 1-1.497-1.32l.083-.094zM12 6a6 6 0 1 1 0 12a6 6 0 0 1 0-12m-8 5a1 1 0 0 1 .117 1.993L4 13H3a1 1 0 0 1-.117-1.993L3 11zm17 0a1 1 0 1 1 0 2h-1a1 1 0 1 1 0-2zM4.929 4.929a1 1 0 0 1 1.32-.083l.094.083l.707.707a1 1 0 0 1-1.32 1.497l-.094-.083l-.707-.707a1 1 0 0 1 0-1.414m14.142 0a1 1 0 0 1 0 1.414l-.707.707a1 1 0 1 1-1.414-1.414l.707-.707a1 1 0 0 1 1.414 0M12 2a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1" />
+								</g>
+							</svg>
+						</button>
+					</div>
+				</header>
+
+
+
+
+
+
+
+
+
+				<!-- history -->
+				<section>
+					<h2>History</h2>
+					<p class="history"></p>
+
+					<div class="albumList splide">
+						<div class="splide__track">
+							<ul class="splide__list">
+								<li class="splide__slide content">
+									<div class="icon" data-clicktoplay="true" data-play="thismusic">
+										<img src="https://placewaifu.com/image/200">
+										<div class="playBtn">
+											<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+												viewBox="0 0 24 24">
+												<path fill="currentColor"
+													d="M21.409 9.353a2.998 2.998 0 0 1 0 5.294L8.597 21.614C6.534 22.737 4 21.277 4 18.968V5.033c0-2.31 2.534-3.769 4.597-2.648z" />
+											</svg>
+										</div>
+									</div>
+									<a href="">
+										<p class="title">
+											CyberBornFat Music Kit [Counter Strike 2] [Remix] [BOOTLEG]
+										</p>
+									</a>
+								</li>
+
+
+							</ul>
+						</div>
+					</div>
+
+				</section>
+				<script>
+					document.addEventListener('DOMContentLoaded', function () {
+						new Splide('.albumList', {
+							autoWidth: true,
+							type: 'loop', // Permet un défilement infini
+							perMove: 1,   // Nombre d'éléments défilés par action
+							gap: '1rem',  // Espace entre les slides
+							rewind: true,
+							width: "100%",
+							gap: '20px',
+							breakpoints: {
+								768: {
+									perPage: 2, // Configuration pour les petits écrans
+								},
+								480: {
+									perPage: 1, // Configuration pour les très petits écrans
+								},
+							},
+						}).mount();
+					});
+
+				</script>
+
+			</div>
+
+			<!-- <div class="right" style="display: inline;">
+
+			</div> -->
+
+		</div>
+		<div class="bottom" id="musicPlayArea">
+
+			<!-- player -->
+			<div class="progress">
+				<div></div>
+			</div>
+
+			<div class="contentFlex">
+				<div class="player">
+					<div class="left">
+						<img src="https://placewaifu.com/image/200" alt="">
+					</div>
+					<div class="right">
+						<p class="name">
+							CyberBornFat Music Kit [Counter Strike 2] [Remix] [BOOTLEG]
+						</p>
+					</div>
+				</div>
+				<div class="playerBtns">
+
+					<button onclick="randomPlay()" id="randomPlay">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<g fill="none">
+								<path stroke="currentColor" stroke-width="2"
+									d="M3 7h1.78c2.152 0 3.228 0 4.1.456a4 4 0 0 1 1.005.749c.688.703.997 1.734 1.615 3.795s.928 3.092 1.615 3.795c.294.301.633.554 1.006.749c.871.456 1.947.456 4.1.456H21m0 0l-3-3m3 3l-3 3" />
+								<path fill="currentColor" fill-rule="evenodd"
+									d="m21.707 6.293l-3-3l-1.414 1.414L18.586 6h-.411c-1.038 0-1.881 0-2.573.06c-.717.064-1.349.198-1.945.51a5 5 0 0 0-1.21.888c.241.393.43.8.594 1.21q.169.426.332.923a2.5 2.5 0 0 1 .457-.688a3 3 0 0 1 .755-.56c.275-.145.617-.239 1.193-.29C16.371 8.001 17.127 8 18.22 8h.366l-1.293 1.293l1.414 1.414l3-3L22.414 7zm-11.154 10.25a8 8 0 0 1-.594-1.21a16 16 0 0 1-.332-.924a2.5 2.5 0 0 1-.457.688a3 3 0 0 1-.755.56c-.275.145-.617.24-1.193.29c-.593.052-1.349.053-2.442.053H3v2h1.825c1.038 0 1.881 0 2.572-.06c.718-.064 1.35-.198 1.946-.51a5 5 0 0 0 1.21-.888"
+									clip-rule="evenodd" />
+							</g>
+						</svg>
+					</button>
+
+					<button onclick="musicPrev()" id="musicPrev">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+								stroke-width="1.5"
+								d="M3.889 3.7v16.6m16.222-1.676V5.38a1.455 1.455 0 0 0-2.343-1.15L8.6 11.363a1.456 1.456 0 0 0 .087 2.357l9.169 6.113a1.456 1.456 0 0 0 2.255-1.208" />
+						</svg>
+					</button>
+
+					<button onclick="playPause()" id="playPause">
+						<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+							<path fill="currentColor" d="M14 10h-2v12h2zm6 0h-2v12h2z" />
+							<path fill="currentColor"
+								d="M16 4A12 12 0 1 1 4 16A12 12 0 0 1 16 4m0-2a14 14 0 1 0 14 14A14 14 0 0 0 16 2" />
+						</svg>
+					</button>
+
+					<button onclick="musicNext()" id="musicNext">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+							<path fill="currentColor"
+								d="M14 2.5a.5.5 0 1 0-1 0v11a.5.5 0 0 0 1 0zM2 3.002a1 1 0 0 1 1.579-.816l7 4.963a1 1 0 0 1 .006 1.628l-7 5.037A1 1 0 0 1 2 13.003zm8 4.963L3 3.002v10z" />
+						</svg>
+					</button>
+
+					<button onclick="musicRepeat()" id="musicRepeat">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+							<path fill="currentColor"
+								d="M17.65 6.35A7.96 7.96 0 0 0 12 4a8 8 0 0 0-8 8a8 8 0 0 0 8 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18a6 6 0 0 1-6-6a6 6 0 0 1 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z" />
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+	</main>
+
+</body>
+<script src="./src/js/darklightMode.js"></script>
+<script src="./src/js/music-player.js"></script>
+
 </html>

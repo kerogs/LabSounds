@@ -10,7 +10,7 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "labsounds",
+        "title": "LabSounds",
         "width": 800,
         "height": 600
       }
@@ -23,11 +23,10 @@
     "active": true,
     "targets": "all",
     "icon": [
-      "icons/32x32.png",
-      "icons/128x128.png",
-      "icons/128x128@2x.png",
-      "icons/icon.icns",
-      "icons/icon.ico"
+      "icons/apple-touch-icon.png",
+      "icons/icon-192.png",
+      "icons/icon-512.png",
+      "icons/favicon.ico"
     ]
   }
 }
