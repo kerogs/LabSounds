@@ -34,24 +34,47 @@ const darkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
 if (getCookie('mode') === 'dark') {
     document.querySelector('html').setAttribute('data-theme', 'default_dark');
     buttonLightDark.innerHTML = lightIcon;
-} else{
+} else {
     document.querySelector('html').setAttribute('data-theme', 'default_light');
     buttonLightDark.innerHTML = darkIcon;
 }
 console.log("Theme mode: " + getCookie('mode'));
 
-function toggleDarkLightMode(){
+function toggleDarkLightMode() {
     if (getCookie('mode') === 'dark') {
+        // ! LIGHT
         modifyCookie('mode', 'light', 365);
-        document.querySelector('html').setAttribute('data-theme', 'light');
         document.querySelector('html').setAttribute('data-theme', 'default_light');
         buttonLightDark.innerHTML = darkIcon;
+        // send outside iframe
+        const kstp = {
+            "header": "themeChange",
+            "data": {
+                "theme": "light"
+            },
+            "footer": {
+                "protocol": "kstp",
+                "version": "1.0",
+            }
+        }
+        window.top.postMessage(kstp, '*')
     } else {
+        // ? LIGHT
         modifyCookie('mode', 'dark', 365);
-        document.querySelector('html').setAttribute('data-theme', 'dark');
         document.querySelector('html').setAttribute('data-theme', 'default_dark');
         buttonLightDark.innerHTML = lightIcon;
-
+        // send outside iframe
+        const kstp = {
+            "header": "themeChange",
+            "data": {
+                "theme": "dark"
+            },
+            "footer": {
+                "protocol": "kstp",
+                "version": "1.0",
+            }
+        }
+        window.top.postMessage(kstp, '*')
     }
 
     console.log("Theme mode: " + getCookie('mode'));
